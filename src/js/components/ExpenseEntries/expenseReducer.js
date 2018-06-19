@@ -1,9 +1,39 @@
-const defaultState ={
+import { REFUSED } from "dns";
+
+const defaultState = {
     description: '',
     amount: '',
     lineItems: []
 };
 
-export default function ExpenseReducer (state = defaultState, action) {
-    return state;
+export default function ExpenseReducer(state = defaultState, action) {
+    const { type, payload } = action,
+    switch (type) {
+        case 'UPDATE_EXPENSE_DESCRIPTION': {
+            return {
+                ...state,
+                description: payload.description
+            };
+        }
+        case 'UPDATE_EXPENSE_AMOUNT': {
+            return {
+                ...state,
+                amount: payload.amount
+            };
+        }
+        case 'ADD_EXPENSE': {
+            return {
+                description: '',
+                action: '',
+                lineItems: [
+                    ...state.lineItems,
+                    { description, amount }
+                ]
+
+            };
+        }
+        default: {
+            return state;
+        }
+    }
 }
