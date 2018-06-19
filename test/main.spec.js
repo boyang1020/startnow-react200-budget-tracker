@@ -21,7 +21,7 @@ describe('express', () => {
     nightmare = new Nightmare();
   });
 
-  it('should have the correct page title', () =>
+    it('should have the correct page title', () =>
     nightmare
       .goto(url)
       .evaluate(() => document.querySelector('body').innerText)

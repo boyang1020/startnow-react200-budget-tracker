@@ -1,4 +1,4 @@
-import { REFUSED } from "dns";
+
 
 const defaultState = {
     description: '',
@@ -7,7 +7,7 @@ const defaultState = {
 };
 
 export default function ExpenseReducer(state = defaultState, action) {
-    const { type, payload } = action,
+    const { type, payload } = action;
     switch (type) {
         case 'UPDATE_EXPENSE_DESCRIPTION': {
             return {
