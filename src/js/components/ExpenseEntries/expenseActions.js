@@ -14,6 +14,7 @@ export function updateExpenseDescription(description) {
   }
   
   export function addExpense(description, amount) {
+    console.log({description})
     return {
       type: 'ADD_EXPENSE',
       payload: {

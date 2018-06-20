@@ -8,6 +8,8 @@ const defaultState = {
 
 export default function ExpenseReducer(state = defaultState, action) {
     const { type, payload } = action;
+    
+    console.log("inside of expense reducer")
     switch (type) {
         case 'UPDATE_EXPENSE_DESCRIPTION': {
             return {
@@ -22,7 +24,10 @@ export default function ExpenseReducer(state = defaultState, action) {
             };
         }
         case 'ADD_EXPENSE': {
+            const { description, amount } = action.payload;
+            console.log({description})
             return {
+               
                 description: '',
                 action: '',
                 lineItems: [
